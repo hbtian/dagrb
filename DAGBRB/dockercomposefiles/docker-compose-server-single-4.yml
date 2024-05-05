@@ -1,0 +1,115 @@
+version: '3'
+services:
+  node0:
+    image: dagbrb:test1
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.2
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 0 "
+#    command: sh -c "python network.py -s hosts -a 2 -i 0"
+    privileged: true
+
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+
+  node1:
+    image: dagbrb:test1
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.3
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 1 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node2:
+    image: dagbrb:test1
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.4
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 2 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node3:
+    image: dagbrb:test1
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.5
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 3 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node4:
+    image: dagbrb:test1
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/molly/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 1 -i 4 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+
+# 添加更多的容器定义，每个容器使用类似的格式
+# ...
+
+networks:
+  mynetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16

@@ -1,0 +1,166 @@
+version: '3'
+services:
+  node53:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.55
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 53 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node54:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.56
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 54 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node55:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.57
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 55 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node56:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.58
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 56 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node57:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.59
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 57 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node58:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.60
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 58 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node59:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.61
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 59 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+
+  node60:
+    image: dagbrb:test
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/hosts:/app/hosts
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/status:/app/status
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/RBC.py:/app/RBC.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/DAGBRB.py:/app/DAGBRB.py
+      - /home/a307/Desktop/DAGBRB/DAG/DAG_BRB/network.py:/app/network.py
+    networks:
+      my-overlay-network:
+        ipv4_address: 172.50.0.62
+    command: sh -c "tc qdisc add dev eth0 root netem delay 10ms && python network.py -s hosts -a 2 -i 60 "
+    privileged: true
+    labels:
+      - "org.label-schema.tc.enabled=1"
+      - "org.label-schema.tc.rate=1000mbps"
+      - "org.label-schema.tc.ceil=1000mbps"
+# 添加更多的容器定义，每个容器使用类似的格式
+# ...
+networks:
+  my-overlay-network:
+    external: true
